@@ -3,44 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Graha Harmonia - The Race for Luxury</title>
+    <title>Graha Harmonia - The Art of Villa Living</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
         
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8f9fa; overflow-x: hidden; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f0f2f5; overflow-x: hidden; }
         h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', serif; }
         
+        /* Warna Brand */
         .text-gold { color: #D4AF37; }
         .bg-gold { background-color: #D4AF37; }
         .bg-dark-green { background-color: #0F3D3E; }
         .text-dark-green { color: #0F3D3E; }
-        .border-gold { border-color: #D4AF37; }
         
+        /* Glassmorphism Effect (Desain Awal) */
         .glass-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
         }
         
         .glass-dark {
-            background: rgba(15, 61, 62, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 61, 62, 0.85);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* VVIP Card Glow Animation */
-        @keyframes border-pulse {
+        /* VVIP Glow */
+        @keyframes gold-pulse {
             0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
             100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
-        .vvip-glow { animation: border-pulse 2s infinite; border: 2px solid #D4AF37; }
+        .vvip-glow { animation: gold-pulse 2s infinite; border: 2px solid #D4AF37; }
 
         html { scroll-behavior: smooth; }
     </style>
@@ -49,240 +54,159 @@
 <body class="antialiased text-slate-800" x-data="{ lang: 'id', nupType: 'VVIP' }">
 
     <div class="fixed top-4 right-4 z-50">
-        <div class="glass-dark rounded-full p-1 flex shadow-lg transform scale-90 md:scale-100 origin-top-right">
-            <button @click="lang = 'id'" :class="lang === 'id' ? 'bg-gold text-white shadow-md' : 'text-gray-300 hover:text-white'" class="px-3 py-1 rounded-full text-xs font-bold transition-all duration-300">ID</button>
-            <button @click="lang = 'en'" :class="lang === 'en' ? 'bg-gold text-white shadow-md' : 'text-gray-300 hover:text-white'" class="px-3 py-1 rounded-full text-xs font-bold transition-all duration-300">EN</button>
+        <div class="glass-dark rounded-full p-1 flex shadow-lg">
+            <button @click="lang = 'id'" :class="lang === 'id' ? 'bg-gold text-white shadow-md' : 'text-gray-300 hover:text-white'" class="px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300">ID</button>
+            <button @click="lang = 'en'" :class="lang === 'en' ? 'bg-gold text-white shadow-md' : 'text-gray-300 hover:text-white'" class="px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300">EN</button>
         </div>
     </div>
 
-    <header class="relative h-[100dvh] min-h-[600px] flex items-center justify-center overflow-hidden">
+    <header class="relative h-[100dvh] min-h-[700px] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="Images/tampak1.png" class="w-full h-full object-cover" alt="Graha Harmonia Villa" style="filter: brightness(0.5);">
-            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/90"></div>
+            <img src="Images/tampak1.png" class="w-full h-full object-cover scale-105" alt="Graha Harmonia Villa" style="filter: brightness(0.6);">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/90"></div>
         </div>
 
-        <div class="relative z-10 container mx-auto px-4 text-center mt-8 md:mt-0" data-aos="fade-up" data-aos-duration="1000">
-            <img src="Images/Pagelogo.png" alt="Graha Harmonia Logo" class="h-20 md:h-28 mx-auto mb-6 drop-shadow-2xl opacity-90">
+        <div class="relative z-10 container mx-auto px-6 text-center" data-aos="fade-up" data-aos-duration="1200">
+            <img src="Images/Pagelogo.png" alt="Graha Harmonia Logo" class="h-24 md:h-32 mx-auto mb-6 drop-shadow-2xl opacity-90 brightness-110">
             
-            <div class="inline-block px-4 py-1 border border-red-500/50 rounded-full bg-red-900/40 backdrop-blur-sm mb-4 animate-pulse">
-                <span class="text-red-400 text-[10px] md:text-xs tracking-[0.2em] uppercase font-bold">⚠️ Sisa 2 Unit Promo Terakhir</span>
+            <div x-show="lang === 'id'">
+                <div class="inline-block px-4 py-1 border border-gold/50 rounded-full bg-black/40 backdrop-blur-sm mb-4">
+                    <span class="text-gold text-xs tracking-[0.2em] uppercase font-bold">New Exclusive Launching</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                    The Art of <br><span class="text-gold italic">Villa Living</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                    Pengalaman Villa Mewah dari <em>Ubud & Canggu</em>, kini hadir di Jantung Tabanan. <br>Investasi cerdas untuk gaya hidup berkelas.
+                </p>
+                <div class="flex flex-col md:flex-row gap-5 justify-center">
+                    <a href="#konsep-villa" class="px-8 py-4 glass-card text-dark-green font-bold rounded-full hover:bg-white transition-all duration-300">
+                        Lihat Desain Rumah
+                    </a>
+                    <a href="#penawaran" class="px-8 py-4 bg-gold text-white font-bold rounded-full hover:bg-yellow-600 transition-all duration-300 shadow-xl vvip-glow">
+                        Ambil NUP Promo
+                    </a>
+                </div>
             </div>
-            
-            <h1 class="text-4xl md:text-7xl font-serif font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-lg">
-                Jangan Sampai <br><span class="text-gold italic">Keduluan Tetangga</span>
-            </h1>
-            
-            <p class="text-base md:text-xl text-gray-200 mb-8 max-w-xl mx-auto font-light leading-relaxed px-2">
-                <span x-show="lang === 'id'">Aset Villa Premium Rp 1 Milyar, bisa Anda miliki hari ini hanya <strong>Rp 699,5 Juta</strong>. Kesempatan ini tidak akan terulang.</span>
-                <span x-show="lang === 'en'" style="display: none;">A 1 Billion IDR Premium Asset, yours today for only <strong>IDR 699.5 Million</strong>. This opportunity will not repeat.</span>
-            </p>
 
-            <div class="flex flex-col md:flex-row gap-3 md:gap-5 justify-center px-4">
-                <a href="#skema-nup" class="w-full md:w-auto px-8 py-4 bg-gold text-white font-bold rounded-full hover:bg-yellow-600 transition-all duration-300 shadow-xl vvip-glow">
-                    Amankan Posisi Pemenang
-                </a>
+            <div x-show="lang === 'en'" style="display: none;">
+                <div class="inline-block px-4 py-1 border border-gold/50 rounded-full bg-black/40 backdrop-blur-sm mb-4">
+                    <span class="text-gold text-xs tracking-[0.2em] uppercase font-bold">New Exclusive Launching</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                    The Art of <br><span class="text-gold italic">Villa Living</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                    Bringing Luxury Villa expertise from <em>Ubud & Canggu</em> to the Heart of Tabanan. <br>Smart investment for a classy lifestyle.
+                </p>
+                <div class="flex flex-col md:flex-row gap-5 justify-center">
+                    <a href="#konsep-villa" class="px-8 py-4 glass-card text-dark-green font-bold rounded-full hover:bg-white transition-all duration-300">
+                        See House Design
+                    </a>
+                    <a href="#penawaran" class="px-8 py-4 bg-gold text-white font-bold rounded-full hover:bg-yellow-600 transition-all duration-300 shadow-xl vvip-glow">
+                        Get Promo NUP
+                    </a>
+                </div>
             </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
         </div>
     </header>
 
-    <section class="py-16 md:py-24 bg-white relative">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+    <section id="konsep-villa" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-white z-0"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gray-50 skew-x-12 transform translate-x-20 z-0"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="relative group" data-aos="fade-right">
-                    <img src="Images/Flyer1.jpg" alt="Flyer Promo" class="relative rounded-2xl md:rounded-3xl shadow-2xl w-full object-cover cursor-zoom-in" onclick="window.open('Images/Flyer1.jpg', '_blank')">
-                    <div class="absolute top-4 left-4 bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg transform -rotate-3">
-                        <p class="text-xs font-bold uppercase">Type 48/70</p>
-                        <p class="text-lg font-bold">Semi-Furnish Included!</p>
+                    <div class="absolute inset-0 bg-gold rounded-3xl transform rotate-3 opacity-20 transition duration-500 group-hover:rotate-1"></div>
+                    <img src="Images/Tampak2.png" alt="Desain Villa Graha Harmonia" class="relative rounded-3xl shadow-2xl w-full object-cover transform transition duration-500 group-hover:-translate-y-2">
+                    
+                    <div class="absolute -bottom-6 -right-6 bg-dark-green text-white p-6 rounded-2xl shadow-xl border-t-4 border-gold hidden md:block" data-aos="fade-up" data-aos-delay="300">
+                        <p class="text-gold text-xs font-bold tracking-widest uppercase mb-1">Architecture</p>
+                        <p class="text-xl font-serif font-bold">Modern Tropical Villa</p>
                     </div>
                 </div>
 
-                <div data-aos="fade-up">
-                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-dark-green mb-6">Kenapa Harus NUP Sekarang?</h2>
-                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                        Bayangkan, Anda menunda hari ini, dan besok pagi unit seharga <strong>Rp 699,5 Juta</strong> ini sudah terjual ke orang lain yang lebih cepat mengambil keputusan. 
-                    </p>
-                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                        Harga normal akan kembali ke angka pasaran (~900 Juta++). Selisih harga ratusan juta ini adalah <strong>keuntungan instan</strong> Anda di hari pertama.
-                    </p>
-                    <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
-                        <p class="text-red-700 font-bold text-sm">🔥 Peringatan:</p>
-                        <p class="text-red-600 text-sm">Unit Promo hanya tersisa 2. Sistem kami memprioritaskan pemegang <strong>NUP VVIP</strong>.</p>
+                <div data-aos="fade-left">
+                    <span class="text-gold font-bold tracking-widest uppercase text-sm">Our Concept</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-dark-green mt-3 mb-6">Kemewahan Villa,<br>Kenyamanan Rumah.</h2>
+                    <div class="space-y-6 text-gray-600 text-lg leading-relaxed">
+                        <p>
+                            Bukan sekadar rumah biasa. Graha Harmonia didesain dengan DNA Villa Bali Modern, memberikan privasi, ketenangan, dan sirkulasi udara yang sempurna layaknya resort bintang lima.
+                        </p>
+                        <p class="italic border-l-4 border-gold pl-4 bg-yellow-50 py-2">
+                            "Kami membangun lingkungan, bukan sekadar bangunan. Investasi di sini bukan hanya tentang tembok dan atap, tapi tentang kualitas hidup dan kenaikan nilai aset (Capital Gain)."
+                        </p>
+                        <ul class="space-y-2 mt-4 text-sm font-bold text-dark-green">
+                            <li class="flex items-center gap-2"><span class="text-gold">✓</span> Lokasi Strategis di Pusat Tabanan</li>
+                            <li class="flex items-center gap-2"><span class="text-gold">✓</span> One Gate System & Security 24 Jam</li>
+                            <li class="flex items-center gap-2"><span class="text-gold">✓</span> Jalan Lingkungan Lebar 6 Meter</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skema-nup" class="py-20 bg-dark-green text-white relative">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gold">Pilih Jalur Kemenangan Anda</h2>
-                <p class="text-gray-300 mt-2">Semakin tinggi prioritas, semakin besar peluang mendapatkan unit promo.</p>
+    <section id="penawaran" class="py-20 bg-dark-green text-white relative">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-12">
+                <span class="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider animate-pulse">⚠️ Promo Terbatas</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gold mt-4">Penawaran Spesial 2 Unit</h2>
+                <p class="text-gray-300 mt-2">Harga Pre-Launch yang tidak akan terulang kembali.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="relative group cursor-zoom-in" onclick="window.open('Images/flyer1.png', '_blank')" data-aos="zoom-in">
+                    <img src="Images/flyer1.png" alt="Flyer Promo 2 Unit" class="relative rounded-2xl shadow-2xl w-full border-4 border-white/10">
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold text-white mb-2">Type 48/70 (2 Kamar Tidur)</h3>
+                    <p class="text-sm text-gray-300 mb-6">Semi-Furnished Villa Design</p>
+                    
+                    <div class="flex items-baseline gap-3 mb-8">
+                        <span class="text-lg line-through text-gray-400">Rp 900.000.000</span>
+                        <h2 class="text-5xl font-serif font-bold text-gold">Rp 699,5 Jt</h2>
+                    </div>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="p-3 bg-white/5 rounded-lg flex justify-between items-center">
+                            <span>Booking Fee (NUP)</span>
+                            <span class="font-bold text-gold">Start Rp 5 Juta</span>
+                        </div>
+                        <div class="p-3 bg-white/5 rounded-lg flex justify-between items-center">
+                            <span>Sisa Unit Promo</span>
+                            <span class="font-bold text-red-400">Hanya 2 Unit</span>
+                        </div>
+                    </div>
+
+                    <a href="#penjelasan-nup" class="block text-center w-full py-4 bg-gold text-dark-green font-bold rounded-xl hover:bg-yellow-500 transition duration-300 shadow-lg">
+                        Lihat Skema NUP
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="penjelasan-nup" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-dark-green">Pilih Jalur Pemenang Anda</h2>
+                <p class="text-gray-600 mt-3 max-w-2xl mx-auto">
+                    NUP (Nomor Urut Pemesanan) adalah tiket antrian untuk memilih unit. <br>Semakin tinggi kelas NUP, semakin besar peluang mendapatkan unit promo Rp 699,5 Juta.
+                </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                
-                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 relative hover:bg-white/10 transition" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-xl font-bold text-gray-300 mb-2">NUP REGULAR</h3>
-                    <p class="text-3xl font-serif font-bold text-white mb-4">Rp 5.000.000</p>
-                    <ul class="space-y-3 text-sm text-gray-300 mb-8">
-                        <li class="flex gap-2"><span>🥉</span> Prioritas Ketiga (Terakhir)</li>
-                        <li class="flex gap-2"><span>✅</span> Refundable (Bisa Kembali)</li>
-                        <li class="flex gap-2 text-gray-500"><span>❌</span> Kecil peluang dapat Unit Promo</li>
-                        <li class="flex gap-2"><span>🏠</span> Cocok untuk unit Non-Promo</li>
-                    </ul>
-                    <button @click="nupType = 'Regular'; document.getElementById('form-nup').scrollIntoView()" class="w-full py-3 rounded-xl border border-white/30 hover:bg-white hover:text-dark-green transition font-bold text-sm">Pilih Regular</button>
-                </div>
-
-                <div class="bg-white/10 border border-white/20 rounded-2xl p-6 relative hover:bg-white/15 transition transform md:-translate-y-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute top-0 right-0 bg-blue-600 text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">POPULAR</div>
-                    <h3 class="text-xl font-bold text-blue-200 mb-2">NUP PRIORITAS</h3>
-                    <p class="text-3xl font-serif font-bold text-white mb-4">Rp 10.000.000</p>
-                    <ul class="space-y-3 text-sm text-gray-200 mb-8">
-                        <li class="flex gap-2"><span>🥈</span> Prioritas Kedua</li>
-                        <li class="flex gap-2"><span>✅</span> Refundable (Bisa Kembali)</li>
-                        <li class="flex gap-2"><span>⚠️</span> Menunggu sisa dari VVIP</li>
-                        <li class="flex gap-2"><span>🏠</span> Peluang unit Promo 50:50</li>
-                    </ul>
-                    <button @click="nupType = 'Prioritas'; document.getElementById('form-nup').scrollIntoView()" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 transition font-bold text-sm text-white shadow-lg">Pilih Prioritas</button>
-                </div>
-
-                <div class="bg-gradient-to-b from-yellow-900/80 to-dark-green border-2 border-gold rounded-2xl p-6 relative shadow-[0_0_30px_rgba(212,175,55,0.3)] transform md:-translate-y-8 scale-105" data-aos="fade-up" data-aos-delay="300">
-                    <div class="absolute top-0 inset-x-0 bg-gold text-dark-green text-center text-xs font-bold py-1 uppercase tracking-widest rounded-t-lg">Rekomendasi Sultan</div>
-                    <h3 class="text-2xl font-bold text-gold mb-2 mt-4">NUP VVIP</h3>
-                    <p class="text-4xl font-serif font-bold text-white mb-4">Rp 15.000.000</p>
-                    <ul class="space-y-3 text-sm text-white mb-8 font-medium">
-                        <li class="flex gap-2"><span>👑</span> <strong>Prioritas TERTINGGI (No. 1)</strong></li>
-                        <li class="flex gap-2"><span>🔒</span> Non-Refundable (Komitmen Serius)</li>
-                        <li class="flex gap-2"><span>🎯</span> <strong>Peluang 99% Kunci Unit Promo</strong></li>
-                        <li class="flex gap-2"><span>🛋️</span> Bonus: Semi-Furnish Type 48/70</li>
-                    </ul>
-                    <button @click="nupType = 'VVIP'; document.getElementById('form-nup').scrollIntoView()" class="w-full py-4 rounded-xl bg-gold hover:bg-yellow-400 text-dark-green transition font-bold text-base shadow-xl vvip-glow">
-                        AMBIL JALUR VVIP
-                    </button>
-                    <p class="text-[10px] text-center mt-2 text-gold/80">*Kuota VVIP Sangat Terbatas</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="form-nup" class="py-16 md:py-24 bg-gray-50 relative">
-        <div class="container mx-auto px-4 md:px-6 max-w-2xl relative z-10">
-            <div class="glass-card bg-white p-6 md:p-10 rounded-2xl md:rounded-3xl shadow-2xl border-t-8 border-gold">
-                
-                <div class="text-center mb-8">
-                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-dark-green mb-2">Formulir Pemenang</h2>
-                    <p class="text-gray-500 text-sm">Isi data di bawah untuk mengunci Nomor Urut Pemesanan Anda.</p>
-                </div>
-
-                <form action="https://formspree.io/f/mblvyoar" method="POST" class="space-y-5">
-                    <input type="hidden" name="_next" :value="'https://wa.me/6282313556700?text=' + (lang === 'id' ? 'Halo%20Admin%2C%20saya%20sudah%20submit%20Formulir%20NUP%20' + nupType + '%20Graha%20Harmonia.' : 'Hello%20Admin%2C%20submitted%20NUP.')">
-                    <input type="hidden" name="_subject" value="New NUP Submission - Graha Harmonia">
-
-                    <div class="space-y-4 bg-gray-50 p-4 rounded-xl border border-gray-200">
-                        <h3 class="font-bold text-dark-green border-b pb-2 mb-2 text-sm uppercase">I. Data Calon Pembeli</h3>
-                        
-                        <div>
-                            <label class="text-xs font-bold text-gray-500 uppercase">Nama Lengkap (Sesuai KTP)</label>
-                            <input class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold outline-none" type="text" name="nama_ktp" required placeholder="Contoh: Budi Santoso">
-                        </div>
-                        
-                        <div>
-                            <label class="text-xs font-bold text-gray-500 uppercase">No. KTP / NIK</label>
-                            <input class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold outline-none" type="number" name="nik" required placeholder="16 Digit NIK">
-                        </div>
-
-                        <div>
-                            <label class="text-xs font-bold text-gray-500 uppercase">Alamat Sesuai KTP</label>
-                            <textarea class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold outline-none h-20" name="alamat_ktp" required></textarea>
-                        </div>
-                        
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="text-xs font-bold text-gray-500 uppercase">No. HP / WhatsApp</label>
-                                <input class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold outline-none" type="number" name="whatsapp" required placeholder="0812...">
-                            </div>
-                            <div>
-                                <label class="text-xs font-bold text-gray-500 uppercase">Email</label>
-                                <input class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold outline-none" type="email" name="email" required>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-4 bg-yellow-50 p-4 rounded-xl border border-gold/30">
-                        <h3 class="font-bold text-dark-green border-b border-gold/20 pb-2 mb-2 text-sm uppercase">II. Tipe NUP Pilihan</h3>
-                        
-                        <label class="flex items-center p-3 border border-gold/40 rounded-lg bg-white cursor-pointer hover:bg-yellow-100 transition shadow-sm">
-                            <input type="radio" name="tipe_nup" value="VVIP (15 Juta)" class="form-radio h-5 w-5 text-gold focus:ring-gold" x-model="nupType" value="VVIP">
-                            <div class="ml-3">
-                                <span class="block text-sm font-bold text-dark-green">NUP VVIP (Non-Refundable)</span>
-                                <span class="block text-xs text-gray-500">Rp 15.000.000 - Prioritas Tertinggi Promo</span>
-                            </div>
-                        </label>
-
-                        <label class="flex items-center p-3 border border-gray-200 rounded-lg bg-white cursor-pointer hover:bg-gray-50 transition">
-                            <input type="radio" name="tipe_nup" value="PRIORITAS (10 Juta)" class="form-radio h-5 w-5 text-blue-600 focus:ring-blue-500" x-model="nupType" value="Prioritas">
-                            <div class="ml-3">
-                                <span class="block text-sm font-bold text-gray-700">NUP PRIORITAS (Refundable)</span>
-                                <span class="block text-xs text-gray-500">Rp 10.000.000 - Prioritas Kedua</span>
-                            </div>
-                        </label>
-
-                        <label class="flex items-center p-3 border border-gray-200 rounded-lg bg-white cursor-pointer hover:bg-gray-50 transition">
-                            <input type="radio" name="tipe_nup" value="REGULAR (5 Juta)" class="form-radio h-5 w-5 text-gray-600 focus:ring-gray-500" x-model="nupType" value="Regular">
-                            <div class="ml-3">
-                                <span class="block text-sm font-bold text-gray-700">NUP REGULAR (Refundable)</span>
-                                <span class="block text-xs text-gray-500">Rp 5.000.000 - Prioritas Ketiga</span>
-                            </div>
-                        </label>
-                    </div>
-
-                    <div class="space-y-4 bg-gray-50 p-4 rounded-xl border border-gray-200">
-                         <h3 class="font-bold text-dark-green border-b pb-2 mb-2 text-sm uppercase">III. Rencana Cara Bayar</h3>
-                         <select class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold outline-none text-sm" name="cara_bayar">
-                            <option value="Tunai Keras">Tunai Keras (Hard Cash)</option>
-                            <option value="Tunai Bertahap">Tunai Bertahap (Installment via Developer)</option>
-                            <option value="KPR">Kredit Pemilikan Rumah (KPR)</option>
-                        </select>
-                    </div>
-
-                    <div class="text-[10px] text-gray-500 bg-gray-100 p-3 rounded-lg italic">
-                        "Saya mengerti bahwa NUP adalah Nomor Urut Pemesanan untuk mendapatkan hak pilih unit, BUKAN Tanda Jadi (Booking Fee) atas unit tertentu."
-                    </div>
-
-                    <button type="submit" class="w-full bg-dark-green hover:bg-black text-white font-bold py-4 rounded-xl transition duration-300 shadow-xl transform hover:-translate-y-1 mt-2 text-base flex justify-center items-center gap-2">
-                        <span>Kunci NUP Saya Sekarang</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                    </button>
-                    
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-dark-green text-white py-10 border-t border-white/5">
-        <div class="container mx-auto px-6 text-center">
-            <img src="Images/Pagelogo.png" alt="Logo" class="h-16 mx-auto mb-4 opacity-80 brightness-200 grayscale">
-            <h3 class="font-serif text-xl font-bold text-gold tracking-widest">GRAHA HARMONIA</h3>
-            <p class="text-xs text-gray-500 mt-6">&copy; 2025 PT. ASANA GRAHA NUSANTARA.</p>
-        </div>
-    </footer>
-
-    <a :href="'https://wa.me/6282313556700?text=' + (lang === 'id' ? 'Halo%20CS%20Asana%20Graha%2C%20saya%20tertarik%20ambil%20NUP%20Promo.' : 'Hello%20CS%20Asana%20Graha%2C%20interested%20in%20NUP.')" 
-       target="_blank" 
-       class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] hover:bg-green-600 text-white py-3 px-4 rounded-full shadow-2xl transition transform hover:scale-105 group animate-bounce">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-        </svg>
-        <div class="hidden md:block text-left">
-            <p class="text-[10px] leading-tight opacity-90 font-medium">Buru Promo</p>
-            <p class="font-bold text-sm leading-tight">Chat Admin</p>
-        </div>
-    </a>
-
-    <script>
-        AOS.init({ once: true, offset: 50, duration: 800 });
-    </script>
-</body>
-</html>
+                <div class="glass-card p-8 rounded-2xl relative hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-lg font-bold text-gray-500 mb-2">NUP REGULAR</h3>
+                    <p class="text-3xl font-serif font-bold text-dark-green mb-6">Rp 5.000.000</p>
+                    <ul class="space-y-4 text-sm text-gray-600 mb-8">
+                        <li class="flex gap-3"><span>🥉</span> Prioritas
