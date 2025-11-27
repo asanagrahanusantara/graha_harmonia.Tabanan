@@ -1,1 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graha Harmonia - Villa Premium Tabanan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+        
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        
+        .bg-brand-dark { background-color: #0F3D3E; }
+        .text-brand-gold { color: #D4AF37; }
+        .bg-brand-gold { background-color: #D4AF37; }
+        .bg-wa { background-color: #25D366; }
+        
+        html { scroll-behavior: smooth; }
+        
+        /* Animasi Pulse untuk tombol WA */
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased" x-data="{ lang: 'id' }">
 
+    <div class="fixed top-4 right-4 z-50 flex gap-2 bg-white/10 backdrop-blur-md p-1 rounded-full border border-white/20 shadow-lg">
+        <button @click="lang = 'id'" :class="lang === 'id' ? 'bg-brand-gold text-brand-dark' : 'text-white hover:bg-white/20'" class="px-3 py-1 rounded-full text-xs font-bold transition duration-300">
+            ID
+        </button>
+        <button @click="lang = 'en'" :class="lang === 'en' ? 'bg-brand-gold text-brand-dark' : 'text-white hover:bg-white/20'" class="px-3 py-1 rounded-full text-xs font-bold transition duration-300">
+            EN
+        </button>
+    </div>
+
+    <div class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="Images/tampak1.png" class="w-full h-full object-cover brightness-50" alt="Graha Harmonia Facade">
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <div class="mb-6 flex justify-center">
+                <img src="Images/Pagelogo.png" alt="Logo Graha Harmonia" class="h-24 md:h-32 drop-shadow-lg">
+            </div>
+            
+            <div x-show="lang === 'id'" x-transition.opacity>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                    Hidup Mewah Seharga<br><span class="text-brand-gold italic">Sewa Kost</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto font-light">
+                    Miliki hunian konsep Villa Premium di Jantung Tabanan. Bukan sekadar tempat tinggal, tapi aset investasi yang membayar dirinya sendiri.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#kalkulator" class="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-brand-dark transition duration-300">
+                        Hitung Cicilan
+                    </a>
+                    <a href="#form-nup" class="px-8 py-4 bg-brand-gold text-brand-dark font-bold rounded-full hover:bg-yellow-500 transition duration-300 shadow-[0_0_20px_rgba(212,175,55,0.4)]">
+                        Amankan NUP (Priority)
+                    </a>
+                </div>
+            </div>
+
+            <div x-show="lang === 'en'" x-transition.opacity style="display: none;">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                    Luxury Living for the<br><span class="text-brand-gold italic">Price of Rent</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto font-light">
+                    Own a Premium Villa-concept residence in the Heart of Tabanan. Not just a home, but an investment asset that pays for itself.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#kalkulator" class="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-brand-dark transition duration-300">
+                        Calculate Installment
+                    </a>
+                    <a href="#form-nup" class="px-8 py-4 bg-brand-gold text-brand-dark font-bold rounded-full hover:bg-yellow-500 transition duration-300 shadow-[0_0_20px_rgba(212,175,55,0.4)]">
+                        Get Priority Pass (NUP)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="relative group cursor-zoom-in" onclick="window.open('Images/Flyer1.jpg', '_blank')">
+                <div class="absolute -top-4 -left-4 w-20 h-20 bg-brand-gold/20 rounded-full blur-xl"></div>
+                <img src="Images/Flyer1.jpg" alt="Flyer Promo Graha Harmonia" class="rounded-2xl shadow-2xl relative z-10 w-full object-cover transform transition duration-500 group-hover:scale-[1.02]">
+                <div class="absolute -bottom-6 -right-6 bg-brand-dark p-6 rounded-xl shadow-xl z-20 text-white hidden md:block">
+                    <p class="text-sm uppercase tracking-widest text-brand-gold mb-1">Type 48/70</p>
+                    <p class="font-bold text-lg">Start 600 Juta-an</p>
+                </div>
+            </div>
+            
+            <div x-show="lang === 'id'" x-transition>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-6">Lebih Dari Sekadar Rumah.<br>Ini Adalah Gaya Hidup.</h2>
+                <div class="space-y-4 text-gray-600 leading-relaxed">
+                    <p>
+                        Banyak developer membangun rumah, tapi kami membangun <strong>kualitas hidup</strong>. Graha Harmonia dirancang dengan DNA yang sama seperti villa-villa mewah yang telah kami bangun di <em>Nusa Lembongan, Berawa, Canggu, Pecatu, dan Ubud.</em>
+                    </p>
+                    <p>
+                        Kami menyadari kebutuhan hunian di Tabanan sangat tinggi, namun sulit menemukan yang menawarkan kenyamanan resort dengan harga masuk akal. 
+                    </p>
+                    <p class="bg-teal-50 p-4 border-l-4 border-brand-dark rounded-r-lg italic text-brand-dark font-medium">
+                        "Tujuan kami sederhana: Memberikan Anda kepuasan tinggal di Villa dengan cicilan KPR yang setara dengan biaya sewa kost satu keluarga."
+                    </p>
+                    <p>
+                        Ini bukan hanya tempat berteduh. Ini adalah mesin investasi. Dengan konsep villa modern, properti Anda memiliki potensi *Capital Gain* tinggi dan sangat layak disewakan melalui Airbnb.
+                    </p>
+                </div>
+            </div>
+
+            <div x-show="lang === 'en'" x-transition style="display: none;">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-6">More Than Just a Home.<br>This is a Lifestyle.</h2>
+                <div class="space-y-4 text-gray-600 leading-relaxed">
+                    <p>
+                        Many developers build houses, but we build <strong>quality of life</strong>. Graha Harmonia is designed with the same DNA as the luxury villas we have developed in <em>Nusa Lembongan, Berawa, Canggu, Pecatu, and Ubud.</em>
+                    </p>
+                    <p>
+                        We realize the demand for housing in Tabanan is high, yet it is difficult to find one that offers resort-style comfort at a reasonable price.
+                    </p>
+                    <p class="bg-teal-50 p-4 border-l-4 border-brand-dark rounded-r-lg italic text-brand-dark font-medium">
+                        "Our goal is simple: To give you the satisfaction of living in a Villa with monthly installments equivalent to the cost of renting a single room for a family."
+                    </p>
+                    <p>
+                        This is not just a shelter. It is an investment machine. With a modern villa concept, your property has high *Capital Gain* potential and is perfectly suitable for Airbnb rentals.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-brand-dark" x-text="lang === 'id' ? 'Intip Masa Depan Anda' : 'Peek Into Your Future'"></h2>
+                <p class="text-gray-500 mt-2" x-text="lang === 'id' ? 'Desain yang memadukan estetika villa dan fungsionalitas.' : 'A design that blends villa aesthetics with family functionality.'"></p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group relative overflow-hidden rounded-xl shadow-lg h-64 md:h-80">
+                    <img src="Images/Interior1.png" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" alt="Interior">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <span class="text-white font-bold text-lg">Premium Interior</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-lg h-64 md:h-80 cursor-zoom-in" onclick="window.open('Images/Denah.png', '_blank')">
+                    <img src="Images/Denah.png" class="w-full h-full object-contain bg-white" alt="Denah">
+                    <div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="bg-white/90 text-brand-dark px-4 py-2 rounded-full text-sm font-bold shadow" x-text="lang === 'id' ? 'Lihat Denah' : 'View Layout'"></span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-lg h-64 md:h-80 cursor-zoom-in" onclick="window.open('Images/Siteplan.png', '_blank')">
+                    <img src="Images/Siteplan.png" class="w-full h-full object-contain bg-white" alt="Siteplan">
+                    <div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="bg-white/90 text-brand-dark px-4 py-2 rounded-full text-sm font-bold shadow" x-text="lang === 'id' ? 'Lihat Posisi' : 'View Siteplan'"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-brand-dark text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4">
+            <svg width="400" height="400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0L14.5 9H23.5L16 14.5L19 23.5L12 18L5 23.5L8 14.5L0.5 9H9.5L12 0Z"/></svg>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <div x-show="lang === 'id'">
+                <h2 class="text-3xl md:text-5xl font-bold text-brand-gold mb-6">Punya Masalah SLIK OJK?</h2>
+                <p class="text-xl text-gray-300 mb-8">Jangan biarkan riwayat kredit masa lalu menghalangi impian masa depan keluarga Anda.</p>
+                <div class="grid md:grid-cols-2 gap-6 text-left">
+                    <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
+                        <h3 class="text-xl font-bold text-brand-gold mb-2">✅ KPR Tanpa BI Checking</h3>
+                        <p class="text-sm text-gray-200">Kami menyediakan fasilitas cicilan developer. SLIK OJK Merah/Jelek? <span class="font-bold text-white">No Worries!</span></p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
+                        <h3 class="text-xl font-bold text-brand-gold mb-2">✅ Syarat Mudah</h3>
+                        <p class="text-sm text-gray-200">Yang terpenting bagi kami adalah Anda memiliki <span class="font-bold text-white">kemampuan bayar (income)</span> yang cukup.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div x-show="lang === 'en'" style="display: none;">
+                <h2 class="text-3xl md:text-5xl font-bold text-brand-gold mb-6">Issues with Credit Score?</h2>
+                <p class="text-xl text-gray-300 mb-8">Don't let past credit history stop your family's future dreams.</p>
+                <div class="grid md:grid-cols-2 gap-6 text-left">
+                    <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
+                        <h3 class="text-xl font-bold text-brand-gold mb-2">✅ In-House Installment</h3>
+                        <p class="text-sm text-gray-200">We provide direct developer installment facilities. Bad Credit Score/SLIK? <span class="font-bold text-white">No Worries!</span></p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
+                        <h3 class="text-xl font-bold text-brand-gold mb-2">✅ Easy Requirements</h3>
+                        <p class="text-sm text-gray-200">What matters most to us is that you have sufficient <span class="font-bold text-white">income capability</span> right now.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kalkulator" class="py-20 bg-white" x-data="kalkulatorKPR()">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800" x-text="lang === 'id' ? 'Simulasi Pembayaran' : 'Payment Simulation'"></h2>
+                <p class="text-gray-500" x-text="lang === 'id' ? 'Sesuaikan dengan kemampuan finansial Anda.' : 'Adjust to your financial capability.'"></p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-10">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2" x-text="lang === 'id' ? 'Harga Unit (Rp)' : 'Unit Price (IDR)'"></label>
+                            <input type="text" :value="formatRupiah(harga)" disabled class="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-3 font-bold text-gray-600">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2" x-text="lang === 'id' ? 'Uang Muka / DP (%)' : 'Down Payment / DP (%)'"></label>
+                            <input type="range" min="10" max="50" step="5" x-model="dpPercent" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-teal-600">
+                            <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                <span>10%</span>
+                                <span class="font-bold text-teal-600" x-text="dpPercent + '%'"></span>
+                                <span>50%</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2" x-text="lang === 'id' ? 'Jangka Waktu (Tenor)' : 'Duration (Tenure)'"></label>
+                            <select x-model="tenorTahun" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-teal-500 outline-none">
+                                <option value="1" x-text="lang === 'id' ? '12 Bulan (Cash Bertahap 0%)' : '12 Months (0% Installment)'"></option>
+                                <option value="2" x-text="lang === 'id' ? '24 Bulan (Cash Bertahap 0%)' : '24 Months (0% Installment)'"></option>
+                                <option value="5" x-text="lang === 'id' ? '5 Tahun (KPR)' : '5 Years (Mortgage)'"></option>
+                                <option value="10" x-text="lang === 'id' ? '10 Tahun (KPR)' : '10 Years (Mortgage)'"></option>
+                                <option value="15" x-text="lang === 'id' ? '15 Tahun (KPR)' : '15 Years (Mortgage)'"></option>
+                                <option value="20" x-text="lang === 'id' ? '20 Tahun (KPR)' : '20 Years (Mortgage)'"></option>
+                            </select>
+                            <p class="text-xs text-green-600 font-bold mt-1" x-show="tenorTahun <= 2" x-text="lang === 'id' ? '*Bunga 0% (Cash Bertahap)' : '*0% Interest (Installment)'"></p>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-dark text-white rounded-xl p-6 flex flex-col justify-center space-y-4 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-brand-gold rounded-full opacity-20 blur-xl"></div>
+                        <div>
+                            <p class="text-xs text-gray-300 uppercase tracking-wide">Nominal DP</p>
+                            <p class="text-2xl font-bold text-brand-gold" x-text="formatRupiah(hitungDP())"></p>
+                        </div>
+                        <div class="w-full h-px bg-white/20"></div>
+                        <div>
+                            <p class="text-xs text-gray-300 uppercase tracking-wide" x-text="lang === 'id' ? 'Estimasi Angsuran / Bulan' : 'Est. Monthly Installment'"></p>
+                            <p class="text-3xl md:text-4xl font-bold" x-text="formatRupiah(hitungCicilan())"></p>
+                        </div>
+                        <div class="pt-4">
+                             <a href="#form-nup" class="block text-center w-full py-3 bg-white text-brand-dark font-bold rounded-lg hover:bg-brand-gold transition duration-300" x-text="lang === 'id' ? 'Ambil Penawaran Ini' : 'Take This Offer'"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="form-nup" class="bg-gray-100 py-20 border-t border-gray-200">
+        <div class="max-w-lg mx-auto px-4">
+            <div class="bg-white p-8 md:p-10 rounded-2xl shadow-2xl border-t-8 border-brand-gold relative">
+                
+                <h2 class="text-3xl font-bold text-center text-brand-dark mb-2">Priority Pass (NUP)</h2>
+                <p class="text-center text-gray-500 mb-8 text-sm" x-text="lang === 'id' ? 'Amankan unit pilihan dan harga perdana sebelum naik.' : 'Secure your preferred unit and launch price before it rises.'"></p>
+                
+                <form action="https://formspree.io/f/mblvyoar" method="POST" class="space-y-5">
+                    
+                    <input type="hidden" name="_next" :value="'https://wa.me/6282313556700?text=' + (lang === 'id' ? 'Halo%20Admin%2C%20saya%20sudah%20isi%20form%20NUP%20Graha%20Harmonia.' : 'Hello%20Admin%2C%20I%20have%20submitted%20the%20NUP%20form%20for%20Graha%20Harmonia.')">
+
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" x-text="lang === 'id' ? 'Nama Lengkap' : 'Full Name'"></label>
+                        <input class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition" type="text" name="nama" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">WhatsApp</label>
+                        <input class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition" type="number" name="whatsapp" required>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                        <input class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition" type="email" name="email" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" x-text="lang === 'id' ? 'Rencana Pembayaran' : 'Payment Plan'"></label>
+                        <select class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition" name="pembayaran">
+                            <option value="KPR Normal">KPR (Normal)</option>
+                            <option value="KPR Tanpa BI Checking">KPR No BI Checking</option>
+                            <option value="Cash Bertahap">Cash Bertahap (Installment)</option>
+                            <option value="Cash Keras">Cash Keras (Hard Cash)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-dark hover:bg-teal-900 text-white font-bold py-4 rounded-lg transition duration-300 shadow-lg flex justify-center items-center gap-2 mt-4">
+                        <span x-text="lang === 'id' ? 'Dapatkan NUP Sekarang' : 'Get NUP Now'"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <a :href="'https://wa.me/6282313556700?text=' + (lang === 'id' ? 'Halo%20CS%20Asana%20Graha%2C%20saya%20tertarik%20info%20Graha%20Harmonia.' : 'Hello%20CS%20Asana%20Graha%2C%20I%20am%20interested%20in%20Graha%20Harmonia.')" 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-wa hover:bg-green-600 text-white py-3 px-4 rounded-full shadow-2xl transition transform hover:scale-105 animate-pulse-soft group">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+        <div class="hidden md:block text-left">
+            <p class="text-[10px] leading-tight opacity-90">Butuh Bantuan?</p>
+            <p class="font-bold text-sm leading-tight">Chat CS Kami</p>
+        </div>
+    </a>
+
+    <footer class="bg-brand-dark text-white py-10 border-t border-white/10">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <img src="Images/Pagelogo.png" alt="Logo" class="h-16 mx-auto mb-4 opacity-80">
+            <h3 class="font-playfair text-xl font-bold mb-2 text-brand-gold">GRAHA HARMONIA</h3>
+            <p class="mb-6 text-sm text-gray-400">Jl. Semila Jati III, Tabanan, Bali</p>
+            <p class="text-xs text-gray-500">&copy; 2025 PT. ASANA GRAHA NUSANTARA. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('kalkulatorKPR', () => ({
+                harga: 600000000, 
+                dpPercent: 20,
+                tenorTahun: 15,
+                
+                hitungDP() {
+                    return this.harga * (this.dpPercent / 100);
+                },
+                
+                hitungCicilan() {
+                    let pokok = this.harga - this.hitungDP();
+                    let bulan = this.tenorTahun * 12;
+                    
+                    if (this.tenorTahun <= 2) {
+                        return pokok / bulan;
+                    } else {
+                        let bungaTahun = 0.07;
+                        let bungaBulan = bungaTahun / 12;
+                        let cicilan = pokok * (bungaBulan * Math.pow((1 + bungaBulan), bulan)) / (Math.pow((1 + bungaBulan), bulan) - 1);
+                        return cicilan;
+                    }
+                },
+                
+                formatRupiah(angka) {
+                    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(angka);
+                }
+            }))
+        })
+    </script>
+</body>
+</html>
