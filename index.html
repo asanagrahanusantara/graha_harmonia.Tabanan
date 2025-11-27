@@ -209,4 +209,168 @@
                     <h3 class="text-lg font-bold text-gray-500 mb-2">NUP REGULAR</h3>
                     <p class="text-3xl font-serif font-bold text-dark-green mb-6">Rp 5.000.000</p>
                     <ul class="space-y-4 text-sm text-gray-600 mb-8">
-                        <li class="flex gap-3"><span>🥉</span> Prioritas
+                        <li class="flex gap-3"><span>🥉</span> Prioritas Ketiga (Terakhir)</li>
+                        <li class="flex gap-3"><span>✅</span> <strong>Refundable</strong> (Uang Kembali)</li>
+                        <li class="flex gap-3"><span>🏠</span> Disarankan untuk unit Non-Promo</li>
+                    </ul>
+                    <button @click="nupType = 'Regular'; document.getElementById('form-nup').scrollIntoView()" class="w-full py-3 rounded-xl border border-dark-green text-dark-green hover:bg-dark-green hover:text-white transition font-bold text-sm">Pilih Regular</button>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl relative hover:shadow-xl transition duration-300 transform md:-translate-y-4 border-t-4 border-blue-500" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 bg-blue-100 text-blue-600 text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-lg uppercase">Opsi Aman</div>
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">NUP PRIORITAS</h3>
+                    <p class="text-3xl font-serif font-bold text-dark-green mb-6">Rp 10.000.000</p>
+                    <ul class="space-y-4 text-sm text-gray-600 mb-8">
+                        <li class="flex gap-3"><span>🥈</span> Prioritas Kedua (Waiting List VVIP)</li>
+                        <li class="flex gap-3"><span>✅</span> <strong>Refundable</strong> (Uang Kembali)</li>
+                        <li class="flex gap-3"><span>⚖️</span> Peluang 50:50 Unit Promo</li>
+                    </ul>
+                    <button @click="nupType = 'Prioritas'; document.getElementById('form-nup').scrollIntoView()" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white transition font-bold text-sm shadow-lg">Pilih Prioritas</button>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl relative shadow-2xl transform md:-translate-y-8 scale-105 border-2 border-gold bg-gradient-to-b from-yellow-50 to-white" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-0 inset-x-0 bg-gold text-white text-center text-xs font-bold py-1 uppercase tracking-widest">Rekomendasi Sultan</div>
+                    <h3 class="text-2xl font-bold text-gold mb-2 mt-4">NUP VVIP</h3>
+                    <p class="text-4xl font-serif font-bold text-dark-green mb-6">Rp 15.000.000</p>
+                    <ul class="space-y-4 text-sm text-gray-700 mb-8 font-medium">
+                        <li class="flex gap-3"><span>👑</span> <strong>Prioritas TERTINGGI (No. 1)</strong></li>
+                        <li class="flex gap-3"><span>🔒</span> Non-Refundable (Komitmen Serius)</li>
+                        <li class="flex gap-3"><span>🎯</span> <strong>99% Kunci Unit Promo</strong></li>
+                    </ul>
+                    <button @click="nupType = 'VVIP'; document.getElementById('form-nup').scrollIntoView()" class="w-full py-4 rounded-xl bg-gold hover:bg-yellow-400 text-white transition font-bold text-base shadow-xl vvip-glow">
+                        AMBIL JALUR VVIP
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="form-nup" class="py-24 bg-dark-green relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-10">
+             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="a" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 40L40 0H20L0 20M40 40V20L20 40" stroke="#fff" stroke-width="2" fill="none"/></pattern></defs><rect width="100%" height="100%" fill="url(#a)"/></svg>
+        </div>
+
+        <div class="container mx-auto px-6 max-w-2xl relative z-10">
+            <div class="glass-card bg-white p-8 md:p-12 rounded-3xl shadow-2xl">
+                
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-serif font-bold text-dark-green mb-2">Formulir Pemenang</h2>
+                    <p class="text-gray-500 text-sm">Lengkapi data untuk mengunci posisi NUP Anda.</p>
+                </div>
+
+                <form action="https://formspree.io/f/mblvyoar" method="POST" class="space-y-6">
+                    <input type="hidden" name="_next" :value="'https://wa.me/6282313556700?text=' + (lang === 'id' ? 'Halo%20Admin%2C%20saya%20sudah%20submit%20Formulir%20NUP%20' + nupType + '%20Graha%20Harmonia.' : 'Hello%20Admin%2C%20submitted%20NUP.')">
+                    <input type="hidden" name="_subject" value="New NUP Submission - Graha Harmonia">
+
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-dark-green border-b pb-2 text-sm uppercase tracking-wider">I. Data Calon Pembeli</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="md:col-span-2">
+                                <label class="text-xs font-bold text-gray-500 uppercase">Nama Lengkap (Sesuai KTP)</label>
+                                <input class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold outline-none" type="text" name="nama_ktp" required placeholder="Budi Santoso">
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-gray-500 uppercase">No. KTP / NIK</label>
+                                <input class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold outline-none" type="number" name="nik" required placeholder="16 Digit NIK">
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-gray-500 uppercase">No. HP / WhatsApp</label>
+                                <input class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold outline-none" type="number" name="whatsapp" required placeholder="0812...">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="text-xs font-bold text-gray-500 uppercase">Alamat Sesuai KTP</label>
+                            <textarea class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold outline-none h-20" name="alamat_ktp" required></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="text-xs font-bold text-gray-500 uppercase">Alamat Domisili</label>
+                            <textarea class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold outline-none h-20" name="alamat_domisili"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="text-xs font-bold text-gray-500 uppercase">Email</label>
+                            <input class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold outline-none" type="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-dark-green border-b pb-2 text-sm uppercase tracking-wider">II. Pilihan Tipe NUP</h3>
+                        
+                        <div class="grid gap-3">
+                            <label class="flex items-center p-4 border-2 border-gold/30 rounded-xl bg-yellow-50 cursor-pointer hover:bg-yellow-100 transition shadow-sm">
+                                <input type="radio" name="tipe_nup" value="VVIP (15 Juta)" class="form-radio h-5 w-5 text-gold focus:ring-gold" x-model="nupType" value="VVIP">
+                                <div class="ml-4">
+                                    <span class="block text-sm font-bold text-dark-green">NUP VVIP (Non-Refundable)</span>
+                                    <span class="block text-xs text-gray-500">Rp 15.000.000 - Prioritas Tertinggi Promo</span>
+                                </div>
+                            </label>
+
+                            <label class="flex items-center p-4 border border-gray-200 rounded-xl bg-white cursor-pointer hover:bg-gray-50 transition">
+                                <input type="radio" name="tipe_nup" value="PRIORITAS (10 Juta)" class="form-radio h-5 w-5 text-blue-600 focus:ring-blue-500" x-model="nupType" value="Prioritas">
+                                <div class="ml-4">
+                                    <span class="block text-sm font-bold text-gray-700">NUP PRIORITAS (Refundable)</span>
+                                    <span class="block text-xs text-gray-500">Rp 10.000.000 - Prioritas Kedua</span>
+                                </div>
+                            </label>
+
+                            <label class="flex items-center p-4 border border-gray-200 rounded-xl bg-white cursor-pointer hover:bg-gray-50 transition">
+                                <input type="radio" name="tipe_nup" value="REGULAR (5 Juta)" class="form-radio h-5 w-5 text-gray-600 focus:ring-gray-500" x-model="nupType" value="Regular">
+                                <div class="ml-4">
+                                    <span class="block text-sm font-bold text-gray-700">NUP REGULAR (Refundable)</span>
+                                    <span class="block text-xs text-gray-500">Rp 5.000.000 - Prioritas Ketiga</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                         <h3 class="font-bold text-dark-green border-b pb-2 text-sm uppercase tracking-wider">III. Rencana Cara Bayar</h3>
+                         <select class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold outline-none text-sm" name="cara_bayar">
+                            <option value="Tunai Keras">Tunai Keras (Hard Cash)</option>
+                            <option value="Tunai Bertahap">Tunai Bertahap (Installment via Developer)</option>
+                            <option value="KPR">Kredit Pemilikan Rumah (KPR)</option>
+                        </select>
+                    </div>
+
+                    <div class="text-[10px] text-gray-500 bg-gray-100 p-4 rounded-lg italic leading-relaxed">
+                        "Dengan ini saya menyatakan data yang diberikan benar. Saya mengerti bahwa NUP adalah Nomor Urut Pemesanan untuk mendapatkan hak pilih unit, BUKAN Tanda Jadi (Booking Fee) atas unit tertentu."
+                    </div>
+
+                    <button type="submit" class="w-full bg-dark-green hover:bg-black text-white font-bold py-4 rounded-xl transition duration-300 shadow-xl transform hover:-translate-y-1 mt-2 text-lg flex justify-center items-center gap-2">
+                        <span>Kunci NUP Saya Sekarang</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark-green text-white py-12 border-t border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <img src="Images/Pagelogo.png" alt="Logo" class="h-16 mx-auto mb-4 opacity-80 brightness-200 grayscale">
+            <h3 class="font-serif text-xl font-bold text-gold tracking-widest">GRAHA HARMONIA</h3>
+            <p class="mb-8 text-sm text-gray-400 font-light tracking-wide">Jl. Semila Jati III, Tabanan, Bali</p>
+            <p class="text-xs text-gray-500">&copy; 2025 PT. ASANA GRAHA NUSANTARA. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <a :href="'https://wa.me/6282313556700?text=' + (lang === 'id' ? 'Halo%20CS%20Asana%20Graha%2C%20saya%20mau%20daftar%20NUP.' : 'Hello%20CS%20Asana%20Graha%2C%20I%20want%20to%20register%20NUP.')" 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-[#25D366] hover:bg-green-600 text-white py-3 px-5 rounded-full shadow-2xl transition transform hover:scale-110 group cursor-pointer animate-bounce">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+        <div class="hidden md:block text-left">
+            <p class="text-[10px] leading-tight opacity-90 font-medium">Buru Promo</p>
+            <p class="font-bold text-sm leading-tight">WhatsApp</p>
+        </div>
+    </a>
+
+    <script>
+        AOS.init({ once: true, offset: 50, duration: 800 });
+    </script>
+</body>
+</html>
